@@ -12,9 +12,8 @@ namespace GuessTheNumber
             Console.InputEncoding = Encoding.UTF8;
 
             Console.Clear();
-            Console.WriteLine("╔════════════════════════════════════════════╗");
-            Console.WriteLine("║            ВГАДАЙ ЧИСЛО (1 - 1000)         ║");
-            Console.WriteLine("╚════════════════════════════════════════════╝");
+            DrawBoxedText("ВГАДАЙ ЧИСЛО (1 - 1000)");
+            
             Console.WriteLine("\nЗагадайте число від 1 до 1000.");
             Console.WriteLine("Я вгадаю його максимально за 10 запитань.");
             Console.WriteLine("\nНатисніть будь-яку клавішу, коли будете готові...");
@@ -46,9 +45,7 @@ namespace GuessTheNumber
             }
 
             Console.Clear();
-            Console.WriteLine("╔════════════════════════════════════════════╗");
-            Console.WriteLine($"║        ВАШЕ ЧИСЛО: {low}          ║");
-            Console.WriteLine("╚════════════════════════════════════════════╝");
+            DrawBoxedText($"ВАШЕ ЧИСЛО: {low}");
 
             if (questions <= MAX_QUESTIONS)
             {
@@ -67,6 +64,27 @@ namespace GuessTheNumber
 
             Console.WriteLine("\nДякуємо за гру! Натисніть будь-яку клавішу для виходу...");
             Console.ReadKey(true);
+        }
+
+        static void DrawBoxedText(string text, int totalWidth = 46)
+        {
+            int internalWidth = totalWidth - 2;
+            string top = "╔" + new string('═', internalWidth) + "╗";
+            string bottom = "╚" + new string('═', internalWidth) + "╝";
+
+            // Ensure text fits
+            if (text.Length > internalWidth)
+                text = text.Substring(0, internalWidth);
+
+            int paddingTotal = internalWidth - text.Length;
+            int padLeft = paddingTotal / 2;
+            int padRight = paddingTotal - padLeft;
+
+            string middle = "║" + new string(' ', padLeft) + text + new string(' ', padRight) + "║";
+
+            Console.WriteLine(top);
+            Console.WriteLine(middle);
+            Console.WriteLine(bottom);
         }
     }
 }
