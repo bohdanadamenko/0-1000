@@ -46,5 +46,5 @@
 - **Алгоритм:** Binary Search ($O(\log n)$)
 
 ---
-*University Quest Project 2024*
+*University Quest Project 2026*
 
