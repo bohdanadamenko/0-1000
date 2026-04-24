@@ -2,8 +2,6 @@ let low = 1;
 let high = 1000;
 let questions = 0;
 const MAX_QUESTIONS = 10;
-const PRIZE_IMAGE_PATH = 'golden_trophy_prize_1776967894775.png';
-
 const screens = {
     start: document.getElementById('start-screen'),
     game: document.getElementById('game-screen'),
@@ -17,14 +15,8 @@ const elements = {
     finalNumber: document.getElementById('final-number'),
     prizeContainer: document.getElementById('prize-container'),
     penaltyContainer: document.getElementById('penalty-container'),
-    prizeImage: document.getElementById('prize-image'),
     rangeDisplay: document.getElementById('range-display')
 };
-
-// Set the prize image path
-if (elements.prizeImage) {
-    elements.prizeImage.src = PRIZE_IMAGE_PATH;
-}
 
 document.getElementById('start-btn').addEventListener('click', startGame);
 document.getElementById('yes-btn').addEventListener('click', () => handleAnswer(true));
