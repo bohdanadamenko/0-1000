@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="view/logo_ukr.svg" width="300" alt="Логотип проєкту">
+  <img src="view/logo_ukr.svg" width="600" alt="Логотип проєкту">
 </p>
 
 # 📦 Вгадай число (1-1000)
