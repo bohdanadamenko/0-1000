@@ -30,11 +30,17 @@ namespace GuessTheNumber
                 questions++;
 
                 Console.WriteLine($"\n[Питання {questions}/{MAX_QUESTIONS}]");
-                Console.Write($"Чи вірно, що задумане число БІЛЬШЕ ніж {mid}? (ТАК/НІ): ");
+                Console.Write($"Чи вірно, що задумане число БІЛЬШЕ ніж {mid}? (ТАК / НІ / ВГАДАНО): ");
                 
                 string? input = Console.ReadLine()?.Trim().ToLower();
 
-                if (input == "так" || input == "т" || input == "+")
+                if (input == "вгадано" || input == "в" || input == "!" || input == "це і є моє число")
+                {
+                    low = mid;
+                    high = mid;
+                    break;
+                }
+                else if (input == "так" || input == "т" || input == "+")
                 {
                     low = mid + 1;
                 }
